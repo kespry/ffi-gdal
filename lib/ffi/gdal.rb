@@ -1,28 +1,24 @@
 require 'ffi'
 require_relative 'gdal/version'
-require_relative 'gdal/cpl_conv'
-require_relative 'gdal/cpl_error'
-require_relative 'gdal/cpl_string'
-require_relative 'gdal/cpl_vsi'
-require_relative 'gdal/gdal_color_entry'
-require_relative 'gdal/gdal_gcp'
-require_relative 'gdal/ogr_core'
-require_relative 'gdal/ogr_api'
-require_relative 'gdal/ogr_srs_api'
+
+require_relative 'gdal/cpl_conv_h'
+require_relative 'gdal/cpl_error_h'
+require_relative 'gdal/cpl_string_h'
+require_relative 'gdal/cpl_vsi_h'
+require_relative 'gdal/cpl_port_h'
+
+require_relative 'gdal/gdalwarper_h'
+
+require_relative 'gdal/ogr_core_h'
+require_relative 'gdal/ogr_api_h'
+require_relative 'gdal/ogr_srs_api_h'
+
 require_relative '../ext/to_bool'
 
 module FFI
   module GDAL
     extend ::FFI::Library
     ffi_lib 'gdal'
-
-    include CPLError
-    include CPLConv
-    include CPLString
-    include CPLVSI
-    include OGRCore
-    include OGRAPI
-    include OGRSRSAPI
 
     #-----------------------------------------------------------------
     # Defines
@@ -605,3 +601,5 @@ module FFI
     FFI::GDAL.GDALAllRegister
   end
 end
+
+require_relative 'gdal/gdal_alg_h'
