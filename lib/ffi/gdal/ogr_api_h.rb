@@ -8,18 +8,23 @@ module FFI
     #------------------------------------------------------------------------
     # Typedefs
     #------------------------------------------------------------------------
-    typedef :pointer, :OGRGeometryH
-    typedef :pointer, :OGRSpatialReferenceH
     typedef :pointer, :OGRCoordinateTransformationH
-    typedef :pointer, :OGRFieldDefnH
-    typedef :pointer, :OGRFeatureDefnH
-    typedef :pointer, :OGRFeatureH
-    typedef :pointer, :OGRStyleTableH
-    typedef :pointer, :OGRGeomFieldDefnH
-    typedef :pointer, :OGRLayerH
     typedef :pointer, :OGRDataSourceH
+    typedef :pointer, :OGRFeatureH
+    typedef :pointer, :OGRFeatureDefnH
+    typedef :pointer, :OGRFieldDefnH
+    typedef :pointer, :OGRGeomFieldDefnH
+    typedef :pointer, :OGRGeometryH
+    typedef :pointer, :OGRLayerH
     typedef :pointer, :OGRSFDriverH
+    typedef :pointer, :OGRSpatialReferenceH
     typedef :pointer, :OGRStyleMgrH
+    typedef :pointer, :OGRStyleTableH
     typedef :pointer, :OGRStyleToolH
+
+    #------------------------------------------------------------------------
+    # Functions
+    #------------------------------------------------------------------------
+    attach_function :OGR_DS_GetLayerCount, [:OGRDataSourceH], :int
   end
 end
