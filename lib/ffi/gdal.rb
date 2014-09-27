@@ -7,7 +7,6 @@ require_relative 'gdal/cpl_string_h'
 require_relative 'gdal/cpl_vsi_h'
 require_relative 'gdal/cpl_port_h'
 
-require_relative 'gdal/gdalwarper_h'
 
 require_relative 'gdal/ogr_core_h'
 require_relative 'gdal/ogr_api_h'
@@ -149,6 +148,19 @@ module FFI
       :GTO_BSQ
 
     #-----------------------------------------------------------------
+    # Structs
+    #-----------------------------------------------------------------
+    autoload :GDALColorEntry,
+      File.expand_path('gdal/gdal_color_entry', __dir__)
+    autoload :GDALGCP,
+      File.expand_path('gdal/gdal_gcp', __dir__)
+    autoload :GDALRPCInfo,
+      File.expand_path('gdal/gdal_rpc_info', __dir__)
+
+    autoload :GDALWarpOptions,
+      File.expand_path('gdal/gdalwarper_h/gdal_warp_options', __dir__)
+
+    #-----------------------------------------------------------------
     # typedefs
     #-----------------------------------------------------------------
     typedef :pointer, :GDALMajorObjectH
@@ -158,7 +170,6 @@ module FFI
     typedef :pointer, :GDALColorTableH
     typedef :pointer, :GDALRasterAttributeTableH
     typedef :pointer, :GDALAsyncReaderH
-    #typedef :pointer, :OGRGeometryH
 
     #-----------------------------------------------------------------
     # functions
@@ -603,3 +614,4 @@ module FFI
 end
 
 require_relative 'gdal/gdal_alg_h'
+require_relative 'gdal/gdalwarper_h'

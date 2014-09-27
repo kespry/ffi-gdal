@@ -142,3 +142,9 @@ GDALClose(dest_dataset2) unless dest_dataset2.null?
 CSLDestroy(papsz_options)
 GDALClose(src_dataset)
 
+progressbar.log 'hi'
+
+#---------------------
+# Using Create()
+#---------------------
+
